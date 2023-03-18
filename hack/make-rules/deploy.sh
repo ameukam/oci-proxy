@@ -55,7 +55,7 @@ for REGION in "${REGIONS[@]}"; do
         --concurrency 1000 \
         --max-instances 10 \
         `# NOTE: should match number of cores configured` \
-        --update-env-vars GOMAXPROCS=1,UPSTREAM_REGISTRY_PATH=k8s-artifacts-prod/images,"UPSTREAM_REGISTRY_ENDPOINT=https://$REGION-docker.pkg.dev" \
+        --update-env-vars GOMAXPROCS=1,DEFAULT_AWS_BASE_URL="https://d3dch67310fpds.cloudfront.net",UPSTREAM_REGISTRY_PATH=k8s-artifacts-prod/images,"UPSTREAM_REGISTRY_ENDPOINT=https://$REGION-docker.pkg.dev" \
         `# TODO: if we use this to deploy prod, we need to handle this differently` \
         --args=-v=3
 done
